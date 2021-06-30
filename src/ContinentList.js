@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { gql, useQuery } from "@apollo/client";
+import { Link } from 'react-router-dom';
 
 const LIST_CONTINENTS = gql`
   {
@@ -10,9 +11,7 @@ const LIST_CONTINENTS = gql`
   }
 `;
 
-
 const ContinentList = () => {
-    const [continents, setContinents] = [];
     const {data, loading, error} = useQuery(LIST_CONTINENTS);
 
     if (loading) {
@@ -24,17 +23,18 @@ const ContinentList = () => {
         return <div>Error!</div>;
     }
 
-    useEffect(() => {
-        // Should not ever set state during rendering, so do this in useEffect instead.
-        setContinents(data.continents);
-    }, []);
-
+    let continentCode;
     return (
-        <div>
-            adsasdadad
+        <div className="continent-list-container">
+            {data.continents.map((continent) => (
+                <div className="continent-list-wrapper">
+                    <Link to={"/continent/" + continent.code}>
+                        <button>{continent.name}</button>
+                    </Link>
+                </div>
+            ))}
         </div>
     );
 };
-
 
 export default ContinentList;
