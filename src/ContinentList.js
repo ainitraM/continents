@@ -23,13 +23,12 @@ const ContinentList = () => {
         return <div>Error!</div>;
     }
 
-    let continentCode;
     return (
         <div className="continent-list-container">
             {data.continents.map((continent) => (
                 <div className="continent-list-wrapper">
-                    <Link to={"/continent/" + continent.code}>
-                        <button>{continent.name}</button>
+                    <Link to={"/continents/" + continent.code}>
+                        <button key={continent.id}>{continent.name}</button>
                     </Link>
                 </div>
             ))}
