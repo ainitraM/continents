@@ -15,12 +15,12 @@ const ContinentList = () => {
     const {data, loading, error} = useQuery(LIST_CONTINENTS);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="flex justify-center items-center">Loading...</div>;
     }
 
     if (error) {
         console.error(error);
-        return <div>Error!</div>;
+        return <div className="flex justify-center items-center">Error!</div>;
     }
 
     return (

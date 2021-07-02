@@ -9,7 +9,7 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <div className="w-full">
+                <div className="w-full" >
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/continents" component={ContinentList}/>
