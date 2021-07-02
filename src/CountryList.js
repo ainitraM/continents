@@ -30,16 +30,16 @@ const CountryList = () => {
         return <div>Error!</div>;
     }
     return (
-        <div className="continent-list-container">
+        <div className="font-bold text-purple-500 text-xl mb-2">
             {data.continent.countries.map((country) => (
-                <div className="continent-list-wrapper">
-                    <button>
+                <div className="grid grid-cols-3">
                         <div>{country.name}</div>
                         <div>{country.emoji}</div>
+                        <div>
                         {country.languages.map((lan) => (
-                            <div>{lan.name}</div>
+                            <p> {lan.name} </p>
                         ))}
-                    </button>
+                        </div>
                 </div>
             ))}
         </div>
